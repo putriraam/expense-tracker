@@ -7,28 +7,28 @@ let data: IExpense[] = JSON.parse(fs.readFileSync('./src/lib/expense.json', 'utf
 export const getExpense = (req: Request, res: Response) => {
     const startDate = req.query.start as string
     const endDate = req.query.end as string
-
     const varStartDate = new Date(startDate)
     const varEndDate = new Date(endDate)
     
-
     const expenseFilter = data.filter((item) => {
-        let isValid=true
+        let isValid = true
         for(const key in req.query){
-            if(key=="category"){
-                isValid=isValid&&item.category.toLowerCase().includes(req.query.kategori?.toString().toLowerCase() as string)
-            }else if(key=="start"){
-                isValid=isValid&&new Date(item.date)>=varStartDate
-            }else if(key=="end"){
-                isValid=isValid&&new Date(item.date)<=varEndDate
-            }else{
-                isValid=isValid&&item[key as keyof typeof item]==req.query[key]
-
+            if(key == "category"){
+                isValid = isValid&&item.category.toLowerCase().includes(req.query.kategori?.toString().toLowerCase() as string)
             }
-            
+            else if(key == "start"){
+                isValid = isValid&&new Date(item.date)>=varStartDate
+            }
+            else if(key == "end"){
+                isValid = isValid&&new Date(item.date)<=varEndDate
+            }
+            else{
+                isValid = isValid&&item[key as keyof typeof item]==req.query[key]
+            }
         }
         return isValid
     })
+
     const nominal = expenseFilter.map((item) => item.nominal).reduce((a, b) => a +b)
     res.status(200).send({
         status: "ok",
@@ -45,7 +45,8 @@ export const getExpenseId = (req: Request, res: Response) => {
             status: "ok",
             data: expense
         })
-    } else {
+    }
+    else {
         res.status(400).send({
             status: "error",
             message: "User not found"
@@ -77,7 +78,8 @@ export const deleteExpense = (req: Request, res: Response) => {
             status: "ok",
             message: 'Data deleted'
         })
-    } else {
+    }
+    else {
         res.status(400).send({
             status: "error",
             message: "User not found"
@@ -104,7 +106,8 @@ export const editExpense = (req: Request, res: Response) => {
             message: 'Expense updated successfully',
             data: data[expenseIndex]
         });
-    } else {
+    }
+    else {
         res.status(404).send({
             status: 'error',
             message: 'Expense not found'
