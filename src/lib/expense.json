@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "Movies",
+    "nominal": 100000,
+    "category": "entertaint",
+    "date": "2024-03-28"
+  },
+  {
+    "id": 2,
+    "name": "Gofood",
+    "nominal": 50000,
+    "category": "food",
+    "date": "2024-01-23"
+  },
+  {
+    "id": 3,
+    "name": "Gym",
+    "nominal": 200000,
+    "category": "sport",
+    "date": "2023-08-14"
+  },
+  {
+    "id": 4,
+    "name": "Gofood",
+    "nominal": 30000,
+    "category": "food",
+    "date": "2023-09-02"
+  },
+  {
+    "id": 5,
+    "name": "Powder",
+    "nominal": 60000,
+    "category": "makeup",
+    "date": "2024-01-17"
+  },
+  {
+    "id": 6,
+    "name": "Album",
+    "nominal": 500000,
+    "category": "hobby",
+    "date": "2023-05-20"
+  },
+  {
+    "id": 7,
+    "name": "Blush",
+    "nominal": 70000,
+    "category": "makeup",
+    "date": "2024-02-28"
+  }
+]
